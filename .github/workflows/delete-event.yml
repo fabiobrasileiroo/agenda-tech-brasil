@@ -9,7 +9,7 @@ permissions:
   issues: write
 
 env:
-  reviewers: "pachicodes,stephan-lopes"
+  reviewers: "fabiobrasileiroo"
 
 jobs:
   delete-event:
