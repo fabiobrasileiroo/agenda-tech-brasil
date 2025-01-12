@@ -1,0 +1,5 @@
+{% if evento.imagem %}
+  <p align="center">
+    <img src="{{ evento.imagem }}" alt="Imagem do Evento {{ evento.nome }}" width="300px">
+  </p>
+{% endif %}
