@@ -52,9 +52,6 @@ jobs:
           event_day=$(get_event_values "$event_info" 'Dia do(a) Evento/Agenda')
           event_image_raw=$(get_event_values "$event_info" 'Banner ou Imagem do Evento')
           event_image=$(echo "$event_image_raw" | grep -oE 'https?://[^ )]+' | head -n 1 || true)
-          if [[ "$event_image" == "_No response_" ]]; then
-            event_image=""
-          fi
 
           if [[ $event_day == "_No response_" ]]; then
             event_month=TBA
@@ -160,9 +157,6 @@ jobs:
           event_day=$(get_event_values "$event_info" 'Dia do(a) Evento/Agenda')
           event_image_raw=$(get_event_values "$event_info" 'Banner ou Imagem do Evento')
           event_image=$(echo "$event_image_raw" | grep -oE 'https?://[^ )]+' | head -n 1 || true)
-          if [[ "$event_image" == "_No response_" ]]; then
-            event_image=""
-          fi
 
           if [[ $event_day == "_No response_" ]]; then
             event_month=TBA
@@ -268,9 +262,6 @@ jobs:
           event_day=$(get_event_values "$event_info" 'Dia do(a) Evento/Agenda')
           event_image_raw=$(get_event_values "$event_info" 'Banner ou Imagem do Evento')
           event_image=$(echo "$event_image_raw" | grep -oE 'https?://[^ )]+' | head -n 1 || true)
-          if [[ "$event_image" == "_No response_" ]]; then
-            event_image=""
-          fi
 
           if [[ $event_day == "_No response_" ]]; then
             event_month=TBA
