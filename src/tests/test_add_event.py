@@ -257,3 +257,29 @@ def test_add_tba_with_image(tmp_path):
     assert len(db["tba"]) == 1
     assert db["tba"][0]["imagem"] == "https://futuro.com/logo.png"
 
+
+def test_add_tba_with_empty_image_does_not_persist_key(tmp_path):
+    db_path = tmp_path / "db.json"
+    write_db(db_path, {"eventos": [], "tba": []})
+
+    new_event = {
+        "ano": 2026,
+        "mes": "tba",
+        "evento": {
+            "nome": "Evento Sem Imagem",
+            "data": [],
+            "url": "https://futuro.com",
+            "cidade": "Manaus",
+            "uf": "AM",
+            "tipo": "presencial",
+            "imagem": "",
+        },
+    }
+
+    add_tba_to_json(str(db_path), new_event)
+    db = read_db(db_path)
+
+    assert len(db["tba"]) == 1
+    assert "imagem" not in db["tba"][0]
+
+

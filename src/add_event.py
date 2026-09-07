@@ -80,8 +80,9 @@ def add_tba_to_json(file_path, new_event):
         "uf": new_event["evento"]["uf"],
         "tipo": new_event["evento"]["tipo"],
     }
-    if "imagem" in new_event["evento"]:
-        event_tba["imagem"] = new_event["evento"]["imagem"]
+    image_url = new_event["evento"].get("imagem")
+    if isinstance(image_url, str) and image_url.strip():
+        event_tba["imagem"] = image_url.strip()
 
     data["tba"].append(event_tba)
     save_database(file_path, data)

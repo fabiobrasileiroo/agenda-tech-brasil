@@ -59,8 +59,8 @@ def validate_event(event, path, skip_data=False):
 
     imagem = event.get("imagem")
     if imagem is not None:
-        if not isinstance(imagem, str) or not imagem.startswith("http"):
-            errors.append(f"{path}.imagem: se fornecida, deve ser uma URL começando com http")
+        if not isinstance(imagem, str) or not (imagem.startswith("http://") or imagem.startswith("https://")):
+            errors.append(f"{path}.imagem: se fornecida, deve ser uma URL começando com http:// ou https://")
 
     return errors
 
