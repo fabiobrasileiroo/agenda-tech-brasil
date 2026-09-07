@@ -7,8 +7,8 @@ from utils import find_month, find_year, get_db_path, load_database, save_databa
 def extract_image_url(raw):
     if not raw or raw.strip() == "_No response_":
         return ""
-    match = re.search(r"https?://[^\s\)]+", raw)
-    return match.group(0) if match else ""
+    match = re.search(r"https?://[^\s\)>]+", raw)
+    return match.group(0).rstrip(">") if match else ""
 
 
 CALENDAR_ORDER = [

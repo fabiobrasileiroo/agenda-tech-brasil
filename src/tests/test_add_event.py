@@ -212,6 +212,9 @@ def test_main_calls_add_event_when_month_not_tba():
 def test_extract_image_url():
     assert extract_image_url("https://example.com/banner.png") == "https://example.com/banner.png"
     assert extract_image_url("![banner](https://github.com/user-attachments/assets/12345)") == "https://github.com/user-attachments/assets/12345"
+    assert extract_image_url("<https://example.com/banner.png>") == "https://example.com/banner.png"
+    assert extract_image_url("[banner](https://example.com/banner.png)") == "https://example.com/banner.png"
+    assert extract_image_url("https://example.com/banner.png>") == "https://example.com/banner.png"
     assert extract_image_url("_No response_") == ""
     assert extract_image_url("") == ""
     assert extract_image_url(None) == ""

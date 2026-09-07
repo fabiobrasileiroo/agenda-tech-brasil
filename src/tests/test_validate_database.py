@@ -438,7 +438,7 @@ def test_validate_event_with_invalid_image_not_string():
 
 def test_validate_event_with_invalid_image_scheme():
     event = valid_presencial_event()
-    for invalid_url in ["ftp://example.com/banner.png", "httpx://example.com/banner.png", ""]:
+    for invalid_url in ["ftp://example.com/banner.png", "httpx://example.com/banner.png", "https://example.com/banner.png>", ""]:
         event["imagem"] = invalid_url
         errors = validate_event(event, "test")
         assert any("imagem" in e for e in errors)
