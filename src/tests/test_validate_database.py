@@ -431,9 +431,10 @@ def test_validate_event_with_valid_image():
 
 def test_validate_event_with_invalid_image_not_string():
     event = valid_presencial_event()
-    event["imagem"] = 123
-    errors = validate_event(event, "test")
-    assert any("imagem" in e for e in errors)
+    for invalid in [123, None]:
+        event["imagem"] = invalid
+        errors = validate_event(event, "test")
+        assert any("imagem" in e for e in errors)
 
 
 def test_validate_event_with_invalid_image_scheme():
